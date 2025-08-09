@@ -1,0 +1,44 @@
+{
+  "screen_width": 800,
+  "screen_height": 480,
+  "fps": 60,
+  "colors": {
+    "bg": [
+      12,
+      14,
+      18
+    ],
+    "fg": [
+      235,
+      235,
+      245
+    ],
+    "muted": [
+      128,
+      132,
+      142
+    ],
+    "accent": [
+      10,
+      132,
+      255
+    ],
+    "warn": [
+      255,
+      69,
+      58
+    ]
+  },
+  "ui": {
+    "show_clock": true,
+    "vignette_alpha": 70,
+    "glass_alpha": 38,
+    "glass_border_alpha": 60,
+    "glow_strength": 70
+  },
+  "thresholds": {
+    "co2_warn_ppm": 1000,
+    "temp_hot_c": 28.0,
+    "temp_cold_c": 18.0
+  }
+}

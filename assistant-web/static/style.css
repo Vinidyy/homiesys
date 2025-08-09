@@ -1,0 +1,90 @@
+/* Apple-like: soft dark, clean type, frosted glass */
+:root{
+  --bg: #0c0e12;
+  --fg: #EBEBF5;
+  --fg-muted: #80848E;
+  --blue: #0A84FF;
+  --red: #FF453A;
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin:0; padding:0;
+  background: radial-gradient(1200px 700px at 20% 30%, #0f1320 0%, #0b0e12 60%, #0a0c10 100%);
+  color: var(--fg);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
+}
+
+.topbar{
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 44px; display:flex; align-items:center;
+  padding: 0 16px; color: var(--fg);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  pointer-events: none;
+  z-index: 10;
+}
+.time{ font-weight: 500; opacity: 0.9; }
+
+.layout{
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px 24px;
+  min-height: 100vh;
+}
+
+.face-wrap{
+  display:flex; align-items:center; justify-content:center;
+  min-height: 480px;
+}
+
+.face{
+  width: 92%; max-width: 560px;
+  filter: drop-shadow(0 20px 40px rgba(10,132,255,0.15));
+}
+
+.panel{
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 22px 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+
+.row{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:end;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.row:last-child{ border-bottom: none; }
+
+.label{
+  font-size: 14px;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+}
+
+.value{
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.value.warn{ color: var(--red); }
+
+/* Blink + micro-saccades via transform on eyes & lids */

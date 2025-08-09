@@ -1,7 +1,7 @@
-import pygame as pg, json, sys, time
+import pygame as pg, json, sys
 from pathlib import Path
 from data_sources import get_data, fake_step
-from ui_utils import toggle_fullscreen, Face, SidePanel, draw_status_bar, draw_vignette
+from ui_apple import toggle_fullscreen, Face, SidePanel, draw_status_bar, draw_vignette
 
 CONFIG_PATH = Path(__file__).with_name("config.json")
 
@@ -11,9 +11,9 @@ def load_config():
     except Exception:
         return {
             "screen_width": 800, "screen_height": 480, "fps": 60,
-            "colors": {"bg":[15,17,19],"fg":[230,230,230],"accent":[38,166,154],"warn":[239,83,80],"muted":[180,186,190]},
-            "thresholds":{"co2_warn_ppm":1000,"temp_hot_c":28.0,"temp_cold_c":18.0},
-            "ui":{"show_clock": True}
+            "colors": {"bg":[12,14,18],"fg":[235,235,245],"muted":[128,132,142],"accent":[10,132,255],"warn":[255,69,58]},
+            "ui": {"show_clock": True, "vignette_alpha": 70, "glass_alpha": 38, "glass_border_alpha": 60, "glow_strength": 70},
+            "thresholds":{"co2_warn_ppm":1000,"temp_hot_c":28.0,"temp_cold_c":18.0}
         }
 
 def main():
@@ -21,7 +21,7 @@ def main():
     pg.init()
     flags = pg.SCALED
     screen = pg.display.set_mode((cfg["screen_width"], cfg["screen_height"]), flags)
-    pg.display.set_caption("Smart Assistant UI — v3")
+    pg.display.set_caption("Smart Assistant — Apple Look v3")
     clock = pg.time.Clock()
 
     face = Face()
@@ -45,16 +45,18 @@ def main():
         data = get_data()
         fake_step()
 
-        # state updates
+        # updates
         face.update(dt)
         warning = (data["co2"] >= cfg["thresholds"]["co2_warn_ppm"]) or (data["temp"] >= cfg["thresholds"]["temp_hot_c"])
 
         # draw
-        screen.fill(cfg["colors"]["bg"])
+
+        screen.fill((60, 60, 60))  # helles Grau zum Test
+        # screen.fill(cfg["colors"]["bg"])
         face.draw(screen, cfg, warning=warning)
         panel.draw(screen, cfg, data)
         draw_status_bar(screen, cfg, data)
-        draw_vignette(screen)
+        # draw_vignette(screen, cfg["ui"].get("vignette_alpha", 70))
 
         pg.display.flip()
 

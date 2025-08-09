@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Assistant — Apple Look</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="time" id="time">--:--</div>
+      </header>
+
+      <main class="layout">
+        <section class="face-wrap">
+          <svg class="face" viewBox="0 0 600 600" aria-hidden="true">
+            <!-- glow ring -->
+            <defs>
+              <radialGradient id="g" cx="50%" cy="45%" r="60%">
+                <stop offset="0%" stop-color="rgba(10,132,255,0.38)"/>
+                <stop offset="100%" stop-color="rgba(10,132,255,0)"/>
+              </radialGradient>
+            </defs>
+            <circle cx="300" cy="290" r="240" fill="url(#g)"></circle>
+            <circle cx="300" cy="290" r="230" fill="none" stroke="rgba(10,132,255,0.85)" stroke-width="3"></circle>
+
+            <!-- eyes -->
+            <circle id="eyeL" cx="210" cy="270" r="42" fill="rgba(235,235,245,1)" />
+            <rect id="lidL" x="168" y="228" width="84" height="0" fill="#0b0e12" rx="6"></rect>
+
+            <circle id="eyeR" cx="390" cy="270" r="42" fill="rgba(235,235,245,1)" />
+            <rect id="lidR" x="348" y="228" width="84" height="0" fill="#0b0e12" rx="6"></rect>
+
+            <!-- mouth -->
+            <path d="M230,350 Q300,390 370,350" fill="none" stroke="rgba(200,225,255,0.9)" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </section>
+
+        <aside class="panel glass">
+          <div class="row">
+            <div class="label">CO₂</div>
+            <div class="value" id="co2">-- ppm</div>
+          </div>
+          <div class="row">
+            <div class="label">Temperature</div>
+            <div class="value" id="temp">-- °C</div>
+          </div>
+          <div class="row">
+            <div class="label">Next bus</div>
+            <div class="value" id="bus">-- min</div>
+          </div>
+          <div class="row">
+            <div class="label">Calendar</div>
+            <div class="value" id="meeting">—</div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

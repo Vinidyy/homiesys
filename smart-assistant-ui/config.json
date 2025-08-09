@@ -1,36 +1,16 @@
+
 {
   "screen_width": 800,
   "screen_height": 480,
   "fps": 60,
   "colors": {
-    "bg": [
-      18,
-      18,
-      18
-    ],
-    "fg": [
-      224,
-      224,
-      224
-    ],
-    "accent": [
-      38,
-      166,
-      154
-    ],
-    "warn": [
-      244,
-      67,
-      54
-    ]
+    "bg": [15, 17, 19],
+    "fg": [230, 230, 230],
+    "accent": [38, 166, 154],
+    "warn": [239, 83, 80],
+    "muted": [180, 186, 190]
   },
-  "thresholds": {
-    "co2_warn_ppm": 1000,
-    "temp_hot_c": 28.0,
-    "temp_cold_c": 18.0
-  },
-  "ui": {
-    "show_clock": true,
-    "show_bus": true
-  }
+  "thresholds": { "co2_warn_ppm": 1000, "temp_hot_c": 28.0, "temp_cold_c": 18.0 },
+  "ui": { "show_clock": true }
 }
+
