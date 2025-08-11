@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --w: 800px;
+  --h: 480px;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: linear-gradient(120deg, #0b0f17, #0f1523, #10192b);
+  background-size: 200% 200%;
+  animation: gradientShift 25s ease infinite;
+  color: white;
+  overflow: hidden;
+}
+
+/* Subtle glass card */
+.card {
+  @apply bg-panel/80 backdrop-blur rounded-2xl shadow-soft border border-white/5;
+}
+
+/* Face shadows */
+.face-glow {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
+}
+
+/* Utility for centered app canvas */
+.app-canvas {
+  width: var(--w);
+  height: var(--h);
+}
